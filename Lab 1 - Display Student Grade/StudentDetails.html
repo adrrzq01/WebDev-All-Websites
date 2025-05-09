@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Student Grade Calculator</h2>
+  <p id="name"></p>
+  <p id="marks"></p>
+  <p id="grade"></p>
+  <script>
+    var studentName = "Abdur Raziq";
+    var marks = 85;
+    var grade;
+    if (marks >= 90) {
+      grade = "A+";
+    } else if (marks >= 75) {
+      grade = "A";
+    } else if (marks >= 65) {
+      grade = "B";
+    } else if (marks >= 50) {
+      grade = "C";
+    } else if (marks >= 35) {
+      grade = "D";
+    } else {
+      grade = "Fail";
+    }
+    document.getElementById("name").innerText = "Name: " + studentName;
+    document.getElementById("marks").innerText = "Marks: " + marks;
+    document.getElementById("grade").innerText = "Grade: " + grade;
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+@echo off
+echo Creating target directory...
+mkdir target\classes 2>nul
+
+echo Compiling Java files...
+javac -cp ".;lib/*" -d target/classes src/main/java/com/example/demo/*.java
+
+echo Running application...
+java -cp ".;target/classes;lib/*" com.example.demo.StudentManagementApplication

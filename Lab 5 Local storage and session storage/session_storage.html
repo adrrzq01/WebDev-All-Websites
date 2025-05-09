@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session Storage Demo</title>
+</head>
+<body>
+    <h2>Session Storage Example</h2>
+    <input type="text" id="userInput" placeholder="Enter some text">
+    <button onclick="saveToSessionStorage()">Save to Session Storage</button>
+    <button onclick="getFromSessionStorage()">Get from Session Storage</button>
+    <button onclick="clearSessionStorage()">Clear Session Storage</button>
+    <div id="output"></div>
+
+    <script>
+        function saveToSessionStorage() {
+            const input = document.getElementById('userInput').value;
+            sessionStorage.setItem('savedText', input);
+            document.getElementById('output').innerHTML = 'Text saved to Session Storage!';
+        }
+
+        function getFromSessionStorage() {
+            const savedText = sessionStorage.getItem('savedText');
+            document.getElementById('output').innerHTML = 
+                savedText ? 'Retrieved text: ' + savedText : 'No text found in Session Storage';
+        }
+
+        function clearSessionStorage() {
+            sessionStorage.removeItem('savedText');
+            document.getElementById('output').innerHTML = 'Session Storage cleared!';
+            document.getElementById('userInput').value = '';
+        }
+    </script>
+</body>
+</html>

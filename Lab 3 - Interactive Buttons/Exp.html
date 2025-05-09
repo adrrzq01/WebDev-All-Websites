@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Buttons</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .label {
+            width: 100%;
+            height: 50%;
+            background-color: #cccccc;
+            color: #000;
+            text-align: center;
+            padding: 10px;
+            font-size: 24px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .label:hover {
+            transform: scale(1.1); /* Zoom effect on label */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .left {
+            background-color: #4CAF50;
+        }
+
+        .middle {
+            background-color: #f44336;
+        }
+
+        .add {
+            background-color: #2196F3;
+        }
+
+        .dynamic-button {
+            background-color: #FF9800;
+            margin-left: 10px;
+        }
+
+        .bottom-section {
+            width: 100%;
+            height: 20%;
+            background-color: #d1e7dd;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="label" id="statusLabel">Click a button to see the action</div>
+    <div class="button-container">
+        <button id="leftButton" class="button left">Marvel</button>
+        <button id="rightButton" class="button middle">DC</button>
+        <button id="addButton" class="button add">Imposter</button>
+    </div>
+
+    <div class="bottom-section">
+        <p>WELCOME TO NOWHERE.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const label = document.getElementById('statusLabel');
+            const leftButton = document.getElementById('leftButton');
+            const rightButton = document.getElementById('rightButton');
+            const addButton = document.getElementById('addButton');
+            const buttonContainer = document.querySelector('.button-container');
+
+            leftButton.addEventListener('click', () => {
+                label.textContent = 'Congratulations you are a Marvel fan';
+                label.style.backgroundColor = 'red'; // Change to red for Marvel
+
+                // Reset background color of dynamic buttons
+                const dynamicButtons = document.querySelectorAll('.dynamic-button');
+                dynamicButtons.forEach(button => {
+                    button.style.backgroundColor = 'red'; // Change to red for Marvel
+                });
+            });
+
+            rightButton.addEventListener('click', () => {
+                label.textContent = 'You are a DC fan';
+                label.style.backgroundColor = 'black'; // Change to black for DC
+                label.style.color = 'white'; // Change text color to white for better visibility
+
+                // Reset background color of dynamic buttons
+                const dynamicButtons = document.querySelectorAll('.dynamic-button');
+                dynamicButtons.forEach(button => {
+                    button.style.backgroundColor = 'black'; // Change to black for DC
+                    button.style.color = 'white'; // Ensure text is visible
+                });
+            });
+
+            addButton.addEventListener('click', () => {
+                label.textContent = 'You are an Imposter';
+                label.style.backgroundColor = 'blue';
+
+                // Create a new dynamic button
+                const newButton = document.createElement('button');
+                newButton.textContent = 'Error';
+                newButton.className = 'button dynamic-button';
+
+                // Add the new button to the container
+                buttonContainer.insertBefore(newButton, addButton);
+            });
+        });
+    </script>
+</body>
+</html>

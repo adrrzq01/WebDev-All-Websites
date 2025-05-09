@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Sorting</title>
+</head>
+<body>
+    <h2>Array Sorting</h2>
+    <button onclick="sortArray()">Sort Array</button>
+    <div id="output"></div>
+
+    <script>
+        function sortArray() {
+            const numbers = [64, 34, 25, 12, 22, 11, 90];
+            const sorted = [...numbers].sort((a, b) => a - b);
+            document.getElementById('output').innerHTML = 
+                'Original array: [' + numbers.join(', ') + ']<br>' +
+                'Sorted array: [' + sorted.join(', ') + ']';
+        }
+    </script>
+</body>
+</html>
